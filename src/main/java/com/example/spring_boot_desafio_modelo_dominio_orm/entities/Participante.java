@@ -1,5 +1,6 @@
 package com.example.spring_boot_desafio_modelo_dominio_orm.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -13,6 +14,8 @@ public class Participante {
     @GeneratedValue()
     private Long id;
     private String nome;
+
+    @Column(unique=true)
     private String email;
 
     public Participante() {}
