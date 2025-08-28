@@ -23,6 +23,10 @@ public class Atividade {
     @JoinColumn(name="participante_id")
     private Participante participante;
 
+    @ManyToOne
+    @JoinColumn(name="bloco_id")
+    private Bloco bloco;
+
     public Atividade() {}
 
     public Atividade(Long id, String nome, String descricao, Double preco) {
