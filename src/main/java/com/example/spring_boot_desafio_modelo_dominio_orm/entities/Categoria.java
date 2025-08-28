@@ -1,6 +1,5 @@
 package com.example.spring_boot_desafio_modelo_dominio_orm.entities;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -64,4 +63,5 @@ public class Categoria {
         return true;
     }
 
+    
 }

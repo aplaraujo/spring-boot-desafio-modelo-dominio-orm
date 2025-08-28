@@ -1,13 +1,10 @@
 package com.example.spring_boot_desafio_modelo_dominio_orm.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,15 +12,12 @@ import jakarta.persistence.Table;
 public class Participante {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String nome;
 
     @Column(unique=true)
     private String email;
-
-    @OneToMany(mappedBy="participante")
-    private List<Atividade> atividades = new ArrayList<>();
 
     public Participante() {}
 
@@ -81,6 +75,4 @@ public class Participante {
             return false;
         return true;
     }
-
-    
 }
