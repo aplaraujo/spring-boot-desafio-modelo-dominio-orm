@@ -1,9 +1,15 @@
 package com.example.spring_boot_desafio_modelo_dominio_orm.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +22,13 @@ public class Atividade {
     private String nome;
     private String descricao;
     private Double preco;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
+
+    @OneToMany(mappedBy="atividade")
+    private List<Bloco> blocos = new ArrayList<>();
 
     public Atividade() {}
 
